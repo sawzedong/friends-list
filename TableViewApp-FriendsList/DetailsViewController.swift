@@ -32,8 +32,8 @@ class DetailsViewController: UIViewController {
         staminaSlider.value = round(friend.Stamina*10)/10
         staminaValueLabel.text = "\(round(friend.Stamina*10)/10)"
     }
-
-   
+    
+    
     
     @IBAction func sliderChanged(_ sender: UISlider) {
         var currentValue = sender.value
@@ -43,26 +43,26 @@ class DetailsViewController: UIViewController {
         currentValue /= 10
         
         switch sender {
-            case attackSlider:
-                attackValueLabel.text = "\(currentValue)"
-                friend.Attack = currentValue
-            case defenseSlider:
-                defenseValueLabel.text = "\(currentValue)"
-                friend.Defense = currentValue
-            case staminaSlider:
-                staminaValueLabel.text = "\(currentValue)"
-                friend.Stamina = currentValue
-            default:
-                attackValueLabel.text = "App Crashed: Alert Dev"
+        case attackSlider:
+            attackValueLabel.text = "\(currentValue)"
+            friend.Attack = currentValue
+        case defenseSlider:
+            defenseValueLabel.text = "\(currentValue)"
+            friend.Defense = currentValue
+        case staminaSlider:
+            staminaValueLabel.text = "\(currentValue)"
+            friend.Stamina = currentValue
+        default:
+            attackValueLabel.text = "App Crashed: Alert Dev"
         }
         
     }
     @IBAction func websiteButtonClicked(_ sender: Any) {
         let urlString = friend.Website
-
+        
         if let url = URL(string: urlString) {
             let vc = SFSafariViewController(url: url)
-
+            
             present(vc, animated: true)
         }
     }

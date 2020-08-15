@@ -17,7 +17,7 @@ class FriendsTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         if let loadedFriends = Friend.loadFromFile() {
             print("Found file! Loading friends!")
@@ -80,14 +80,14 @@ class FriendsTableViewController: UITableViewController {
     
     
     
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let friend = friends.remove(at: fromIndexPath.row)
         friends.insert(friend, at: to.row)
         tableView.reloadData()
         Friend.saveToFile(friends: friends)
-     }
-     
+    }
+    
     
     /*
      // Override to support conditional rearranging of the table view.
@@ -117,10 +117,10 @@ class FriendsTableViewController: UITableViewController {
                 friends.append(source.friend)
                 Friend.saveToFile(friends: friends)
             }
-                tableView.reloadData()
+            tableView.reloadData()
             
-            }
         }
-        
     }
+    
+}
 

@@ -37,15 +37,15 @@ class Friend: Codable {
     }
     
     init(Name: String, School: String, ImageURL: String, Age: Int, Website: String, Attack:Float, Defense:Float, Stamina:Float) {
-           self.Name = Name
-           self.School = School
-           self.ImageURL = ImageURL
-           self.Age = Age
-           self.Website = Website
-           self.Attack = Attack
-           self.Defense = Defense
-           self.Stamina = Stamina
-       }
+        self.Name = Name
+        self.School = School
+        self.ImageURL = ImageURL
+        self.Age = Age
+        self.Website = Website
+        self.Attack = Attack
+        self.Defense = Defense
+        self.Stamina = Stamina
+    }
     static func loadSampleData() -> [Friend] {
         let friends = [
             Friend(Name: "MacBook", School: "Apple", ImageURL: "Macbook-img", Age: 4, Website: "https://www.apple.com/mac/"),
@@ -62,14 +62,14 @@ class Friend: Codable {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         return documentsDirectory.appendingPathComponent(plistName).appendingPathExtension("plist")
     }
-
+    
     static func saveToFile(friends: [Friend]) {
         let archiveURL = getArchiveURL()
         let propertyListEncoder = PropertyListEncoder()
         let encodedFriends = try? propertyListEncoder.encode(friends)
         try? encodedFriends?.write(to: archiveURL, options: .noFileProtection)
     }
-
+    
     static func loadFromFile() -> [Friend]? {
         let archiveURL = getArchiveURL()
         let propertyListDecoder = PropertyListDecoder()
